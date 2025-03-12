@@ -1,57 +1,42 @@
 // Variables to store the current drawing color
 color currentColor = color(0, 0, 0); // Default is black
-boolean isDrawing = false; // Track if mouse is pressed for drawing
+boolean isDrawing = false;
 float brushSize = 10;
 
 void setup() {
-  size(800, 600); // Set canvas size
-  background(255); // White background
+  size(800, 600);
+  background(255);
 }
 
 void draw() {
-  // Check if the mouse is pressed and we are in drawing mode
   if (isDrawing) {
-    // Draw a circle where the mouse is located
     fill(currentColor);
     noStroke();
-    ellipse(mouseX, mouseY, brushSize, brushSize); // Draw a small circle to simulate the brush
+    ellipse(mouseX, mouseY, brushSize, brushSize);
   }
 }
 
 void mousePressed() {
-  // Start drawing when the mouse is pressed
   isDrawing = true;
 }
-
 void mouseReleased() {
-  // Stop drawing when the mouse is released
   isDrawing = false;
 }
-
 void keyPressed() {
-  // Clear the canvas when the 'C' key is pressed
   if (key == 'C' || key == 'c') {
-    background(255); // Reset the background to white
+    background(255);
   }
-  
-  // Change the color to black when the 'B' key is pressed
   if (key == 'B' || key == 'b') {
-    currentColor = color(0, 0, 0); // Black color
+    currentColor = color(0, 0, 0);
   }
-
-  // Change the color to red when the 'R' key is pressed
   if (key == 'R' || key == 'r') {
-    currentColor = color(255, 0, 0); // Red color
+    currentColor = color(255, 0, 0);
   }
-
-  // Change the color to green when the 'G' key is pressed
   if (key == 'G' || key == 'g') {
-    currentColor = color(0, 255, 0); // Green color
+    currentColor = color(0, 255, 0);
   }
-
-  // Change the color to blue when the 'L' key is pressed
   if (key == 'L' || key == 'l') {
-    currentColor = color(0, 0, 255); // Blue color
+    currentColor = color(0, 0, 255);
   }
   if (key == 'Z' || key == 'z') {
     brushSize += 10;
